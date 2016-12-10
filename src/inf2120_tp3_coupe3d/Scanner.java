@@ -1,67 +1,57 @@
+package inf2120_tp3_coupe3d;
 
 import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
+import java.awt.Component;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Scanner extends JFrame {
+
 	private static final long serialVersionUID = 1L;
-
+	
+	Scene scene;
+	PanneauControle controle; 
+	
 	public Scanner() {
-		super( "Scanner" );
-		setDefaultCloseOperation( EXIT_ON_CLOSE );
-		setLayout( new BorderLayout() );
+		super("Scanner");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+		setSize(600, 600);
 
-		Scene s = new Scene( "Atron-t2a.obj" );
-		add( s, BorderLayout.CENTER );		
-		
-		JPanel panneauNorth = new JPanel( new GridBagLayout() );
-		GridBagConstraints c = new GridBagConstraints();
+		scene = initScene();
+		controle = initControle(scene);
 		
 		
+		scene.setEchelleGrille(0.01);
+		scene.setEchelleImage(10);
+		scene.setNiveau(50);
+		scene.setRotationXZ(2.5);
 		
-		JButton load = new JButton( "Charger" );
-		JLabel nomFichier = new JLabel( "." );
-		load.addActionListener( (e) -> {
-		    JFileChooser chooser = new JFileChooser();
-		    FileNameExtensionFilter filter = new FileNameExtensionFilter( "Fichier obj", "obj" );
-		    chooser.setFileFilter( filter );
-		    int returnVal = chooser.showOpenDialog( this );
-		    if( returnVal == JFileChooser.APPROVE_OPTION ) {
-		    	nomFichier.setText( chooser.getSelectedFile().getName() );
-		    	s.chargerFichierObj( chooser.getSelectedFile() );
-				
-				s.repaint();
-		    }
-		} );
-		c.gridx = 0;
-		c.gridy = 0;
-		panneauNorth.add( load, c );
-		c.gridx = 1;
-		c.gridy = 0;
-		c.gridwidth = 2;
-		panneauNorth.add( nomFichier, c );
-		c.gridwidth = 1;
-		
-		
-		add( panneauNorth, BorderLayout.NORTH );
-		
-		
-		
-		
-		
-		pack();
-		setVisible( true );
-		s.repaint();
+		this.repaint();
 	}
 	
-	public static void main( String [] argv ) {
-		javax.swing.SwingUtilities.invokeLater( () -> new Scanner() );
+	private PanneauControle initControle(Scene s){
+		PanneauControle c = new PanneauControle(s);
+		add(c , BorderLayout.EAST);
+		setVisible(true);
+		return c;
 	}
+
+	private Scene initScene() {
+
+		Scene s = new Scene("Atron-t2a.obj");
+		add(s, BorderLayout.WEST);
+		pack();
+		setVisible(true);
+		s.repaint();
+		
+		return s;
+	}
+	
+	Component getScene() {
+		return scene;
+	}
+	Component getControleur(){
+		return controle;
+	}
+
 }

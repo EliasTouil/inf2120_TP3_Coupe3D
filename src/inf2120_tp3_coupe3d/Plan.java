@@ -1,3 +1,5 @@
+package inf2120_tp3_coupe3d;
+
 
 public class Plan {
 	public Point w;

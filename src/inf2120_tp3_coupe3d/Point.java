@@ -1,3 +1,5 @@
+package inf2120_tp3_coupe3d;
+
 
 public class Point {
 	public double x;

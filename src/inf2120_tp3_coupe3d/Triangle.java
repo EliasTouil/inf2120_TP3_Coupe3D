@@ -1,3 +1,5 @@
+package inf2120_tp3_coupe3d;
+
 import java.util.ArrayList;
 
 public class Triangle {
