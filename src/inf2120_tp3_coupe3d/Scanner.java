@@ -18,16 +18,14 @@ public class Scanner extends JFrame {
 		setSize(600, 600);
 
 		scene = initScene();
+		scene = ajouterOptionsDefaut(scene);
 		controle = initControle(scene);
 		
 		
-		scene.setEchelleGrille(0.01);
-		scene.setEchelleImage(10);
-		scene.setNiveau(50);
-		scene.setRotationXZ(2.5);
+		
 		
 		this.repaint();
-	}
+	} 
 	
 	private PanneauControle initControle(Scene s){
 		PanneauControle c = new PanneauControle(s);
@@ -42,7 +40,15 @@ public class Scanner extends JFrame {
 		add(s, BorderLayout.WEST);
 		pack();
 		setVisible(true);
-		s.repaint();
+		
+		return s;
+	}
+	
+	private Scene ajouterOptionsDefaut(Scene s){
+		s.setEchelleGrille(0.01);
+		s.setEchelleImage(10);
+		s.setNiveau(50);
+		s.setRotationXZ(2.5);
 		
 		return s;
 	}

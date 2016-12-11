@@ -14,17 +14,22 @@ import javax.swing.JPanel;
 public class PanneauControle extends JPanel {
 	
 	private JButton charger;
-	private JLabel nomFichier = new JLabel();
-	
+	private JLabel nomFichier;
+	//private Controleur ctrlXY;
 	
 	PanneauControle(Scene s){
-		super(new GridBagLayout());
+		super( new GridBagLayout() );
+		this.nomFichier = new JLabel();
+		
 		charger = new JButton("Charger");
 		charger.addActionListener(new ChargerListener(s,this));
+		
+		//ctrlXY = new Controleur();
 		
 		add(nomFichier,styleNomFichier());
 		add(charger,styleCharger());
 	}
+	
 	
 	private GridBagConstraints styleNomFichier(){
 		GridBagConstraints c = new GridBagConstraints();

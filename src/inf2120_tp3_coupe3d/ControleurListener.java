@@ -22,6 +22,7 @@ public class ControleurListener implements ChangeListener {
     @Override
     public void stateChanged(ChangeEvent ce) {
         // call the function that takes a slider as parameter
+		System.out.println("state changed");
     }
     
 }

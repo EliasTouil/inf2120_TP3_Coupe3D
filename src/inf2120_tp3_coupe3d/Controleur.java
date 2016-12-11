@@ -17,19 +17,20 @@ public class Controleur extends JPanel {
     protected JTextField valeur = new JTextField();
     protected JButton retirer = new JButton();
     
-     private ControleurListener listener;
+     //private ControleurListener listener = new ControleurListener();
     
     Controleur(String nomEntree){
         
         super();
+		
         nom = new JLabel(nomEntree);
         this.setVisible(true);
         add(nom);
         add(ajouter);
         
-        add(poignee);
-        listener = new ControleurListener();
-        poignee.addChangeListener(listener);
+        add(poignee); 
+        //poignee.addChangeListener(listener);
+		
         add(retirer);
         add(valeur);
         
@@ -42,6 +43,7 @@ public class Controleur extends JPanel {
         poignee.setVisible(flag);
         retirer.setVisible(flag);
         valeur.setVisible(flag);
+		
     }
     
     public JSlider getPoignee(){
