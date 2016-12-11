@@ -16,6 +16,7 @@ public class PanneauControle extends JPanel {
 	private JButton charger;
 	private JLabel nomFichier;
 	//private Controleur ctrlXY;
+	private JPanel ctrlXY;
 	
 	PanneauControle(Scene s){
 		super( new GridBagLayout() );
@@ -24,7 +25,7 @@ public class PanneauControle extends JPanel {
 		charger = new JButton("Charger");
 		charger.addActionListener(new ChargerListener(s,this));
 		
-		//ctrlXY = new Controleur();
+		ctrlXY = new Controller("Rotation XY");
 		
 		add(nomFichier,styleNomFichier());
 		add(charger,styleCharger());
