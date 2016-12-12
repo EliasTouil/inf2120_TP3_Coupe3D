@@ -1,4 +1,4 @@
-package inf2120_tp3_coupe3d;
+package gestionObjets;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import javax.swing.JPanel;
 
 public class Scene extends Canvas {
 
@@ -317,9 +316,5 @@ public class Scene extends Canvas {
     @Override
     public void update(Graphics g) {
         paint(g);
-    }
-
-    void add(JPanel ctrl1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

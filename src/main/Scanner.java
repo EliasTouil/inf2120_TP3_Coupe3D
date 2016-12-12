@@ -1,5 +1,7 @@
-package inf2120_tp3_coupe3d;
+package main;
 
+import controle.PanneauControle;
+import gestionObjets.Scene;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import javax.swing.JFrame;
@@ -12,16 +14,14 @@ public class Scanner extends JFrame {
 	PanneauControle controle; 
 	
 	public Scanner() {
+		
 		super("Scanner");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 		setSize(600, 600);
 
 		scene = initScene();
-		scene = ajouterOptionsDefaut(scene);
 		controle = initControle(scene);
-		
-		
 		
 		
 		this.repaint();
@@ -33,6 +33,8 @@ public class Scanner extends JFrame {
 		setVisible(true);
 		return c;
 	}
+	
+	
 
 	private Scene initScene() {
 
@@ -40,20 +42,22 @@ public class Scanner extends JFrame {
 		add(s, BorderLayout.WEST);
 		pack();
 		setVisible(true);
+		s = ajouterOptionsDefaut(s);
 		
 		return s;
 	}
 	
 	private Scene ajouterOptionsDefaut(Scene s){
+		// Shoulde be deleted when all min and max for controllers are setup
 		s.setEchelleGrille(0.01);
-		s.setEchelleImage(10);
+		s.setEchelleImage(5);
 		s.setNiveau(50);
-		s.setRotationXZ(2.5);
+		s.setRotationXZ(0);
 		
 		return s;
 	}
 	
-	Component getScene() {
+	public Component getScene() {
 		return scene;
 	}
 	Component getControleur(){

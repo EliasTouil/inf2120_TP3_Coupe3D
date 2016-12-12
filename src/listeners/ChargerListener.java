@@ -1,5 +1,7 @@
-package inf2120_tp3_coupe3d;
+package listeners;
 
+import controle.PanneauControle;
+import gestionObjets.Scene;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFileChooser;
@@ -14,7 +16,7 @@ public class ChargerListener implements ActionListener {
 	Scene scene;
 	PanneauControle controle;
 
-	ChargerListener(Scene s, PanneauControle c) {
+	public ChargerListener(Scene s, PanneauControle c) {
 		super();
 		scene = s;
 		controle = c;
@@ -22,6 +24,7 @@ public class ChargerListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent ae) {
+		
 		JFileChooser chooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichier obj", "obj");
 		chooser.setFileFilter(filter);
@@ -29,13 +32,14 @@ public class ChargerListener implements ActionListener {
 		int returnVal = chooser.showOpenDialog(null);
 
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			
 			controle.setNomFichier(chooser.getSelectedFile().getName());
 			scene.chargerFichierObj(chooser.getSelectedFile());
-			
-			
+			controle.initControlleurs(scene);
+
 			scene.repaint();
 			controle.repaint();
+			
 		}
-
 	}
 }

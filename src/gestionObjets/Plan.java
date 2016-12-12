@@ -1,4 +1,4 @@
-package inf2120_tp3_coupe3d;
+package gestionObjets;
 
 
 public class Plan {

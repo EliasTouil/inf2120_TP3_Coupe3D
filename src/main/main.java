@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package inf2120_tp3_coupe3d;
+package main;
 
 /**
  *
