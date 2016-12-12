@@ -37,7 +37,7 @@ public class Niveau extends Parametre {
 	}
 
 	@Override
-	public int getValeurDefaut() {
+	public double getValeurDefaut() {
 		return 50;
 	}
 

@@ -24,4 +24,9 @@ public class EchelleGrille extends EchelleImage{
 		mettreAJour(valValide);
 		s.repaint();
 	}
+	
+	@Override
+	public double getValeurDefaut() {
+		return 0.01;
+	}
 }

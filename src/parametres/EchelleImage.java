@@ -29,8 +29,8 @@ public class EchelleImage extends Parametre{
 	}
 
 	@Override
-	public int getValeurDefaut() {
-		return 0;
+	public double getValeurDefaut() {
+		return 4;
 	}
 
 	@Override

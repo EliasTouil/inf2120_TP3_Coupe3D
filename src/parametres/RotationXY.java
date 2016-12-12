@@ -39,7 +39,7 @@ public class RotationXY extends Parametre{
 	}
 
 	@Override
-	public int getValeurDefaut() {
+	public double getValeurDefaut() {
 		return 0;
 	}
 

@@ -29,10 +29,14 @@ public abstract class Parametre {
 		s.repaint();
 	}
 	
+	public double getValeurDefaut(){
+		return 0;
+	}
+	
 	public abstract String getNom();
 	public abstract int getMin();
 	public abstract int getMax();
-	public abstract int getValeurDefaut();
+	
 	
 	public abstract double traduireValeur(double i);
 	public abstract double valider(double i);

@@ -3,9 +3,13 @@ package main;
 import controle.PanneauControle;
 import gestionObjets.Scene;
 import java.awt.BorderLayout;
-import java.awt.Component;
 import javax.swing.JFrame;
 
+
+/**
+ * Le Scanner est la fenetre qui contient la <Scene> et le <PanneauControle>.
+ * @author Elias Touil <info@eliastouil.com>
+ */
 public class Scanner extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -16,9 +20,9 @@ public class Scanner extends JFrame {
 	public Scanner() {
 		
 		super("Scanner");
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
-		setSize(600, 600);
 
 		scene = initScene();
 		controle = initControle(scene);
@@ -27,6 +31,12 @@ public class Scanner extends JFrame {
 		this.repaint();
 	} 
 	
+	/**
+	 * Instancie un nouveau PanneauControle lié à la scène entrée en paramètre. 
+	 * 
+	 * @param s
+	 * @return c <PanneauControle>.
+	 */
 	private PanneauControle initControle(Scene s){
 		PanneauControle c = new PanneauControle(s);
 		add(c , BorderLayout.EAST);
@@ -34,8 +44,10 @@ public class Scanner extends JFrame {
 		return c;
 	}
 	
-	
-
+	/**
+	 * Instancie une Scene avec un fond grillé (Atron-t2A.obj). 
+	 * @return s Scene
+	 */
 	private Scene initScene() {
 
 		Scene s = new Scene("Atron-t2a.obj");
@@ -47,21 +59,25 @@ public class Scanner extends JFrame {
 		return s;
 	}
 	
+	/**
+	 * Retourne une scène avec ses paramètre mis à la valeur par défaut
+	 * @param s
+	 * @return 
+	 */
 	private Scene ajouterOptionsDefaut(Scene s){
-		// Shoulde be deleted when all min and max for controllers are setup
+		
+		// Utiliser getValeurDefaut des classes paramètres 
 		s.setEchelleGrille(0.01);
-		s.setEchelleImage(5);
+		s.setEchelleImage(4);
+		s.setEchelleProfondeur(1);
 		s.setNiveau(50);
 		s.setRotationXZ(0);
+		s.setRotationXY(0);
+		s.setRotationYZ(0);
+		
+		s.repaint();
 		
 		return s;
-	}
-	
-	public Component getScene() {
-		return scene;
-	}
-	Component getControleur(){
-		return controle;
 	}
 
 }

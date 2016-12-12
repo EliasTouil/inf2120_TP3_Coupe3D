@@ -1,15 +1,12 @@
 package controle;
 
 import gestionObjets.Scene;
-import listeners.ControleurActionListener;
-import listeners.ControleurChangeListener;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JSlider;
-import javax.swing.JTextField;
 
 /**
- *
+ *Un Controlleur avec un Jslider et deux boutons.
+ * Le Jslider représente la valeur et les bouton permettent d'ajouter ou de retirer à la valeur. 
  * @author Elias Touil <info@eliastouil.com>
  */
 public class CtrlTypeB extends Controlleur{
@@ -27,7 +24,9 @@ public class CtrlTypeB extends Controlleur{
 		
 	}
 	
-	
+	/**
+	 * permet d'ajouter les Component supplémentaires.
+	 */
 	 void addonComponents(){
 		 
 		retirer = new JButton("-");
@@ -38,8 +37,6 @@ public class CtrlTypeB extends Controlleur{
 		add(poignee);	
 		add(ajouter);
 		
-		
-			
 		retirer.addActionListener(actionListener);
 		poignee.addChangeListener(changeListener);
 		ajouter.addActionListener(actionListener);

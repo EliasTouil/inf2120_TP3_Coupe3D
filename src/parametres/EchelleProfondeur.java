@@ -25,4 +25,9 @@ public class EchelleProfondeur extends EchelleImage {
 		mettreAJour(valValide);
 		s.repaint();
 	}
+	
+	@Override
+	public double getValeurDefaut() {
+		return 1;
+	}
 }
