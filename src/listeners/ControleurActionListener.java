@@ -32,6 +32,7 @@ public class ControleurActionListener implements ActionListener {
 			actionPerformed((JTextField) source);
 
 		}
+		
 	}
 	
 	// Improve
@@ -41,6 +42,7 @@ public class ControleurActionListener implements ActionListener {
 			parametre.ajouter();
 		} else if (b.getText().equals("-")) {
 			parametre.retirer();
+			
 		}
 	}
 

@@ -1,18 +1,45 @@
 package parametres;
 
+import controle.Controlleur;
+import gestionObjets.Scene;
+
 /**
  *
  * @author Elias Touil <info@eliastouil.com>
  */
-public interface Parametre {
-	int getMin();
-	int getMax();
-	double traduireValeur(double i);
-	void modifier(double i);
-	void ajouter();
-	void retirer();
-	int getValeurDefaut();
-	double valider(double i);
-	void mettreAJour(double i);
-	String getNom();
+public abstract class Parametre {
+	Scene s;
+	Controlleur c;
+	int valeur;
+	
+	public Parametre(Controlleur controller, Scene scene) {
+		s = scene;
+		c = controller;
+	}
+	
+	public void ajouter() {
+		modifier(s.getNiveau() + 1);
+	}
+	public void retirer() {
+		modifier(s.getNiveau() - 1);
+	}
+	
+	public void mettreAJour(double i) {
+		c.mettreAJour((int)i);
+		s.repaint();
+	}
+	
+	public abstract String getNom();
+	public abstract int getMin();
+	public abstract int getMax();
+	public abstract int getValeurDefaut();
+	
+	public abstract double traduireValeur(double i);
+	public abstract double valider(double i);
+	public abstract void modifier(double i);
+	
+	
+	
+	
+	
 }

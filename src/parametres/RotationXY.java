@@ -7,47 +7,49 @@ import gestionObjets.Scene;
  *
  * @author Elias Touil <info@eliastouil.com>
  */
-public class Niveau extends Parametre {
+public class RotationXY extends Parametre{
 	
-	public Niveau(Controlleur c, Scene s) {
-		super( c , s );
+	public RotationXY(Controlleur c, Scene s) {
+		super(c, s);
 	}
 
 	@Override
 	public double traduireValeur(double i) {
-		return i;
+		return Math.PI * i / 180.00;
 	}
 
 	@Override
 	public void modifier(double i) {
 		double valValide = valider(i);
-		s.setNiveau((int) valValide);
+		s.setRotationXY( traduireValeur(valValide));
 		mettreAJour(valValide);
 		s.repaint();
 	}
 
+	
+
 	@Override
 	public int getMin() {
-		return 0;
+		return -180;
 	}
 
 	@Override
 	public int getMax() {
-		return s.getNiveauMaximum();
+		return 180;
 	}
 
 	@Override
 	public int getValeurDefaut() {
-		return 50;
+		return 0;
 	}
 
 	@Override
 	public double valider(double entree) {
 		
-		if (entree > s.getNiveauMaximum() ){
-			entree = s.getNiveauMaximum();
-		} else if ( entree < 0 ){
-			entree = 0 ; 
+		if (entree > 180 ){
+			entree = 180;
+		} else if ( entree < -180 ){
+			entree = -180 ; 
 		}
 		
 		return entree;
@@ -55,7 +57,7 @@ public class Niveau extends Parametre {
 
 	@Override
 	public String getNom() {
-		return "niveau";
+		return "Rotation XY";
 	}
 
 }
