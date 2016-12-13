@@ -21,7 +21,12 @@ public class ChargerListener implements ActionListener {
 		scene = s;
 		controle = c;
 	}
-
+	
+	/**
+	 * Prend en charge le changement d'une valeur d'un component. 
+	 * Change le fichier lorsqu'il est sélectionné et appelle initControlleurs du PanneauControle.
+	 * @param ae 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		

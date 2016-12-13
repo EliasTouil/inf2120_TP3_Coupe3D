@@ -18,6 +18,10 @@ public class ControleurActionListener implements ActionListener {
 		parametre = p ;
 	}
 	
+	/**
+	 * Appelle la fonction actionPerformed avec le bon parametre
+	 * @param ae 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		
@@ -35,7 +39,10 @@ public class ControleurActionListener implements ActionListener {
 		
 	}
 	
-	// Improve
+	/**
+	 * Ajoute 1 ou retire 1 de la valeur du Parametre selon le bouton appuyé.
+	 * @param b 
+	 */
 	private void actionPerformed(JButton b) {
 		
 		if (b.getText().equals("+")) {
@@ -45,10 +52,23 @@ public class ControleurActionListener implements ActionListener {
 			
 		}
 	}
-
+	
+	/**
+	 * Ajoute la valeur passée en paramètre au Paramètre. 
+	 * @param t 
+	 */
 	private void actionPerformed(JTextField t) {
-		double valeur = Double.parseDouble(t.getText());
-		parametre.modifier(valeur);
+		try {
+			
+			double valeur = Double.parseDouble(t.getText());
+			parametre.modifier(valeur);
+			
+		} catch (Exception e) {
+			
+			System.err.println("valeur entrée n'est pas un nombre");
+			parametre.modifier(parametre.getValeurDefaut());
+			
+		}
 	}
 
 }

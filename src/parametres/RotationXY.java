@@ -45,7 +45,6 @@ public class RotationXY extends Parametre{
 
 	@Override
 	public double valider(double entree) {
-		
 		if (entree > 180 ){
 			entree = 180;
 		} else if ( entree < -180 ){

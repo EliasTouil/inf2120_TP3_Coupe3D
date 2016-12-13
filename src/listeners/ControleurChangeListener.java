@@ -17,6 +17,10 @@ public class ControleurChangeListener implements ChangeListener {
 		parametre = p;
 	}
 
+	/**
+	 * Appelle la fonction actionPerformed avec le bon parametre
+	 * @param ae 
+	 */
 	@Override
 	public void stateChanged(ChangeEvent ce) {
 		Object source = ce.getSource();
@@ -27,7 +31,13 @@ public class ControleurChangeListener implements ChangeListener {
 
 		}
 	}
-
+	
+	/**
+	 * /**
+	 * Ajoute la valeur du Slider au Paramètre. 
+	 * @param t 
+	 * param s 
+	 */
 	public void stateChanged(JSlider s) {
 		parametre.modifier(s.getValue());
 	}
